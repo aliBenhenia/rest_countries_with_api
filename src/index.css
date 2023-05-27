@@ -1,0 +1,57 @@
+*
+{
+  /* user-select: none; */
+}
+
+body{
+  overflow-x: hidden;
+  padding-top: 30px;
+  /* background-color: #202C37!important; */
+}
+
+#theme
+{
+  height: 100%;
+}
+
+.headerDark
+{
+  background-color: #2C3845;
+}
+
+.search
+{
+  padding: 11px;
+  outline: 0;
+  border-radius: 13px;
+  border: 0;
+  font-size: 14px;
+}
+
+.search_icon
+{
+  position: absolute;
+  right: -26%;
+  font-size: 2.5rem;
+}
+
+.img_container
+{
+  width: 100%;
+  /* border: 1px solid red; */
+}
+
+.p_info
+{
+  font-weight: 700;
+  font-family: 'Roboto', sans-serif;
+}
+.bg_nice
+{
+  background-color: #202C37;
+}
+
+.bg_card
+{
+  background-color: #2B3845!important;
+}
