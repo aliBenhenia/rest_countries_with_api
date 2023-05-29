@@ -1,17 +1,41 @@
-import React, { useEffect , useContext } from 'react'
+import React, { useEffect , useContext,useState } from 'react'
 import { SearchOutlined } from '@ant-design/icons';
 import {Image , Select, Card, Button} from "antd"
 import { MyProvider } from '../context/ProviderContext';
 import data from "../data.json"
 const { Meta } = Card;
 export default function Home() {
+  const [value, setValue] = useState(data);
+  const [search, setSearch] = useState(null);
+  const [select, setSelect] = useState(null);
   const {theme} = useContext(MyProvider);
+  const handleSearch = (event)=>{
+    const query = event.target.value
+    setSearch(query);
+    const filtred = data.filter((item)=>{
+        return item.name.toLowerCase().includes(query.toLowerCase());
+    })
+    setValue(filtred);
+    console.log(query)
+    }
+  const handleSelect = (selected)=>{
+    // alert(selected)
+    setSelect(selected);
+    const filtered = data.filter((item)=>{
+        return (item.region == selected)
+    })
+    setValue(filtered)
+  }
   document.body.style.backgroundColor = theme === 'dark' ? '#000000 !important' : '#ffffff !important';
   return (
     <div className='container mt-5 p-3 home'>
        <div className='d-flex  justify-content-between '>
             <div className='text-left position-relative'>
-                <input type='text' placeholder='serach for country' className='search shadow '/>
+                <input type='text' placeholder='serach for country' 
+                className='search shadow '
+                value={search}
+                onChange={handleSearch}
+                />
                 <span className="material-symbols-outlined search_icon">
                     manage_search
                 </span>
@@ -21,31 +45,40 @@ export default function Home() {
                 showSearch
                 placeholder="filter by region"
                 optionFilterProp="children"
-                // onChange={onChange}
-                // onSearch={onSearch}
+                value = {select}
+                onChange={handleSelect}
                 filterOption={(input, option) =>
                 (option?.label ?? '').toLowerCase().includes(input.toLowerCase())
                 }
                 options={[
                 {
-                    value: 'jack',
-                    label: 'Jack',
+                    value: 'Asia',
+                    label: 'Asia',
                 },
                 {
-                    value: 'lucy',
-                    label: 'Lucy',
+                    value: 'Europe',
+                    label: 'Europe',
                 },
                 {
-                    value: 'tom', 
-                    label: 'Tom',
+                    value: 'Africa', 
+                    label: 'Africa',
                 },
+                {
+                    value: 'Americas', 
+                    label: 'Americas',
+                },
+                {
+                    value: 'Oceania', 
+                    label: 'Oceania',
+                },
+
                 ]}
             />
             </div>
        </div>
         <div className='row img_container container pt-4'>
        {
-            data.map((item,idx) =>{
+            value.map((item,idx) =>{
                 const classAtt = `card shadow  col-md-5  col-xl-3 m-3  ${theme === 'light' ? 'bg-white text-dark' : 'bg_card text-white'}`;
                 return(
                      <div key={idx} className= {classAtt}>
