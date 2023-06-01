@@ -12,7 +12,7 @@ export default function Header() {
            <div className='text-right' onClick={ToggleTheme}>
                <p className='fw-bold '>Dark Mode 
                      <span className="material-symbols-outlined fs-6">
-                     <span class="material-symbols-outlined ">
+                     <span className="material-symbols-outlined ">
                         night_sight_max
                      </span>
                     </span>

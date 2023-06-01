@@ -1,6 +1,6 @@
 *
 {
-  /* user-select: none; */
+  user-select: none;
 }
 
 body{
@@ -54,4 +54,22 @@ body{
 .bg_card
 {
   background-color: #2B3845!important;
+}
+#country
+{
+  height : 100vh;
+  margin-top: 30px;
+  padding-top: 55px;
+}
+#country #back_p
+{
+  text-decoration: none;  
+  padding: 11px;
+  padding-top: 13px;
+  border-radius: 50px;
+  font-weight: bold;
+  width: 50px;
+}
+#country img{
+  height: 250px!important;;
 }
