@@ -15,17 +15,7 @@ function Theme({children}) {
             <Routes>
                 <Route path="/" element={<Home />}/>
                 <Route path="/country" element={<Country 
-                name = {coountryInfo.name}
-                nativeName = {coountryInfo.nativeName}
-                flags = {coountryInfo.flags}
-                population = {coountryInfo.population}
-                subregion = {coountryInfo.subregion}
-                region = {coountryInfo.region}
-                topLevelDomain = {coountryInfo.topLevelDomain}
-                currencies = {coountryInfo.currencies}
-                languages = {coountryInfo.languages}
-                capital = {coountryInfo.capital}
-                  // {...coountryInfo}
+                   {...coountryInfo} // clean then pass manuallly
                 />}
                  />
                 <Route path="*" element={<h1>not</h1>}/>
